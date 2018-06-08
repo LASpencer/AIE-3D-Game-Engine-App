@@ -106,7 +106,60 @@
 			ENDCG
 		}
 
-		//2: Fog effect
+		// 2: Horizontal blur
+		Pass
+		{
+			CGPROGRAM
+			#pragma vertex vert
+			#pragma fragment frag
+			#include "UnityCG.cginc"
+
+			sampler2D	_MainTex;
+			float4		_MainTex_TexelSize;
+			fixed		_Density;
+
+			//TODO extract out to cginc file, use definitions to change between vertical and horizontal
+			fixed4 frag (v2f i) : SV_Target
+			{
+				fixed4 colour = {0,0,0,0};
+				float kernel[5] = {1,1,1,1,1};
+				float scale = 0.2;
+				for(int j = 0; j < 5; ++j){
+					colour += tex2D(_MainTex, i.uv + float2(j - 2, 0) * _MainTex_TexelSize.xy) * kernel[j];
+				}
+				return colour * scale;
+			}
+
+			ENDCG
+		}
+
+		// 3: Vertical blur
+		Pass
+		{
+			CGPROGRAM
+			#pragma vertex vert
+			#pragma fragment frag
+			#include "UnityCG.cginc"
+
+			sampler2D	_MainTex;
+			float4		_MainTex_TexelSize;
+			fixed		_Density;
+
+			fixed4 frag (v2f i) : SV_Target
+			{
+				fixed4 colour = {0,0,0,0};
+				float kernel[5] = {1,1,1,1,1};
+				float scale = 0.2;
+				for(int j = 0; j < 5; ++j){
+					colour += tex2D(_MainTex, i.uv + float2(0, 2 - j) * _MainTex_TexelSize.xy) * kernel[j];
+				}
+				return colour * scale;
+			}
+
+			ENDCG
+		}
+
+		//4: Fog effect
 		Pass
 		{
 			CGPROGRAM
@@ -126,7 +179,7 @@
 				fixed4 mainCol = tex2D(_MainTex, i.uv);
 				fixed4 baseCol = tex2D(_BaseTex, i.uv);
 				//fixed4 col = fixed4(lerp(mainCol.rgb, baseCol.rgb, baseCol.a), mainCol.a * baseCol.a);
-				fixed4 col = mainCol + baseCol;
+				fixed4 col = fixed4(mainCol.rgb + baseCol.rgb, mainCol.a);
 
 				// TODO figure out parameters for fog
 				float4 depthNormal = tex2D(_CameraDepthNormalsTexture, i.uv);

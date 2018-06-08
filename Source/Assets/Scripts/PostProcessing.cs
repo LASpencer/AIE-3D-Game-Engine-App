@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//TODO issue: fire looks wrong in fog as it doesn't appear in density buffer
+
 [RequireComponent(typeof(Camera))]
 public class PostProcessing : MonoBehaviour {
 
@@ -20,7 +22,7 @@ public class PostProcessing : MonoBehaviour {
 	void Update () {
 		
 	}
-
+		
     private void OnRenderImage(RenderTexture source, RenderTexture destination)
     {
 		RenderTexture temp1 = RenderTexture.GetTemporary (source.descriptor);
@@ -38,11 +40,12 @@ public class PostProcessing : MonoBehaviour {
 
 		// Blur for bloom effect
 		//Graphics.Blit(temp1, destination, mat, 1);
-		Graphics.Blit(temp1, temp2, mat, 1);
-		mat.SetTexture ("_BaseTex", temp2);
+		Graphics.Blit(temp1, temp2, mat, 2);
+		Graphics.Blit (temp2, temp1, mat, 3);
+		mat.SetTexture ("_BaseTex", temp1);
 
 		// Add to base and apply fog
-		Graphics.Blit(source, destination, mat, 2);
+		Graphics.Blit(source, destination, mat, 4);
 
 		RenderTexture.ReleaseTemporary(temp1);
 		RenderTexture.ReleaseTemporary(temp2);
