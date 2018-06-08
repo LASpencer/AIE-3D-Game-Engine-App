@@ -9,6 +9,7 @@ public class PostProcessing : MonoBehaviour {
 
     public Material mat;    //HACK
 
+
 	// Use this for initialization
 	void Start () {
         cam = GetComponent<Camera>();
@@ -22,6 +23,28 @@ public class PostProcessing : MonoBehaviour {
 
     private void OnRenderImage(RenderTexture source, RenderTexture destination)
     {
-        Graphics.Blit(source, destination, mat);
+		RenderTexture temp1 = RenderTexture.GetTemporary (source.descriptor);
+		RenderTexture temp2 = RenderTexture.GetTemporary (source.descriptor);
+
+
+		// TODO render between different rendertextures using different passes to get effect needed
+
+		//TODO try 3x3 blur, if not enough write some two-pass linear thing?
+
+		// currently 1 is just fog, rewrite as more passes worked out
+
+		// Filter to get bright areas only
+		Graphics.Blit(source, temp1, mat, 0);
+
+		// Blur for bloom effect
+		//Graphics.Blit(temp1, destination, mat, 1);
+		Graphics.Blit(temp1, temp2, mat, 1);
+		mat.SetTexture ("_BaseTex", temp2);
+
+		// Add to base and apply fog
+		Graphics.Blit(source, destination, mat, 2);
+
+		RenderTexture.ReleaseTemporary(temp1);
+		RenderTexture.ReleaseTemporary(temp2);
     }
 }
