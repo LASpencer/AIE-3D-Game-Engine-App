@@ -61,7 +61,7 @@ Material:
     m_Floats:
     - _BumpScale: 1
     - _Cutoff: 0.5
-    - _Density: 21.5
+    - _Density: 23.9
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _FilterCutoff: 0.46
