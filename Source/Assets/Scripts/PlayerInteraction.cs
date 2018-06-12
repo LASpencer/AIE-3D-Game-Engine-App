@@ -10,6 +10,7 @@ public class PlayerInteraction : MonoBehaviour {
 	Gun gun;
 	[SerializeField]
 	LayerMask shootMask;
+    [SerializeField]
 	Camera playerCamera;
 
 	// Use this for initialization
@@ -23,9 +24,13 @@ public class PlayerInteraction : MonoBehaviour {
 			bool canShoot = gun.Fire();
 			RaycastHit gunHit;
 			//TODO figure out why gun not hitting (ray is wrong?)
-			if (canShoot && Physics.Raycast (playerCamera.ViewportPointToRay (new Vector3 (0.5f, 0.5f, 1)), out gunHit, shootMask)) {
+			if (canShoot && Physics.Raycast (playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0)), out gunHit, 100, shootMask)) {
 				// Get 
 				HitParticleSpawner particleSpawner = gunHit.collider.GetComponent<HitParticleSpawner>();
+                if (particleSpawner != null)
+                {
+                    particleSpawner.Shoot(gunHit);
+                }
 			}
 		}
 	}
