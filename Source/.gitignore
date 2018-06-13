@@ -4,8 +4,10 @@
 [Bb]uild/
 [Bb]uilds/
 Assets/AssetStoreTools*
-Assets/Asset Store/
+Assets/Asset Store/*
 Assets/Standard Assets/
+!Assets/Asset Store/Old Sea Port/prefabs/*
+
 
 # Visual Studio 2015 cache directory
 /.vs/
