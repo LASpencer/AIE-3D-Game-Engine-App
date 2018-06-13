@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 3303154}
   - component: {fileID: 2313828}
   - component: {fileID: 6401660}
-  - component: {fileID: 114889500261936248}
+  - component: {fileID: 114351152782866454}
   m_Layer: 0
   m_Name: brick_tree_base
   m_TagString: Untagged
@@ -199,7 +199,7 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 121638}
   m_IsPrefabParent: 1
---- !u!114 &114889500261936248
+--- !u!114 &114351152782866454
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}

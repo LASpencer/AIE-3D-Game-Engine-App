@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3333706}
   - component: {fileID: 2389070}
   - component: {fileID: 6486962}
-  - component: {fileID: 114996389913221584}
+  - component: {fileID: 114314513111673142}
   m_Layer: 0
   m_Name: tower_short
   m_TagString: Untagged
@@ -98,7 +98,7 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 144710}
   m_IsPrefabParent: 1
---- !u!114 &114996389913221584
+--- !u!114 &114314513111673142
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}

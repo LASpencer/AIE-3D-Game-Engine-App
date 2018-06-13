@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3349288}
   - component: {fileID: 2313026}
   - component: {fileID: 6488712}
-  - component: {fileID: 114363664042059164}
+  - component: {fileID: 114978965320244666}
   m_Layer: 0
   m_Name: fence_gate
   m_TagString: Untagged
@@ -98,7 +98,7 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 145600}
   m_IsPrefabParent: 1
---- !u!114 &114363664042059164
+--- !u!114 &114978965320244666
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}

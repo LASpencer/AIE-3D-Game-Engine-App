@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3300000}
   - component: {fileID: 2300000}
   - component: {fileID: 6400000}
-  - component: {fileID: 114608994786115824}
+  - component: {fileID: 114315662292609314}
   m_Layer: 0
   m_Name: Log_1
   m_TagString: Untagged
@@ -99,7 +99,7 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 100000}
   m_IsPrefabParent: 1
---- !u!114 &114608994786115824
+--- !u!114 &114315662292609314
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}

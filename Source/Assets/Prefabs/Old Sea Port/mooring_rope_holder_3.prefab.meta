@@ -1,10 +1,8 @@
 fileFormatVersion: 2
-guid: 348af5643f923214c9241d7e5921c60f
-timeCreated: 1528871864
-licenseType: Free
+guid: b962e54cbd3b92c438734c5811b1ee30
+labels:
+- OldSeaPort
 NativeFormatImporter:
-  externalObjects: {}
-  mainObjectFileID: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

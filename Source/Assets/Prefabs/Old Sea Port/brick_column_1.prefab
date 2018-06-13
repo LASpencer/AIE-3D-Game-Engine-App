@@ -27,7 +27,7 @@ GameObject:
   - component: {fileID: 3318558}
   - component: {fileID: 2395312}
   - component: {fileID: 6454440}
-  - component: {fileID: 114392192688533534}
+  - component: {fileID: 114523041606558642}
   m_Layer: 0
   m_Name: brick_column_1_LOD1
   m_TagString: Untagged
@@ -221,7 +221,7 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 120438}
   m_IsPrefabParent: 1
---- !u!114 &114392192688533534
+--- !u!114 &114523041606558642
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}

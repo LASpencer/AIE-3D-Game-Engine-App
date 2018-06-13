@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3303508}
   - component: {fileID: 2328278}
   - component: {fileID: 6485886}
-  - component: {fileID: 114325337655004358}
+  - component: {fileID: 114488827138341310}
   m_Layer: 0
   m_Name: stairs_wood_spiral
   m_TagString: Untagged
@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 3380768}
   - component: {fileID: 2351596}
   - component: {fileID: 6449126}
-  - component: {fileID: 114382901424006946}
+  - component: {fileID: 114901591646870034}
   m_Layer: 0
   m_Name: stone_pillar
   m_TagString: Untagged
@@ -215,7 +215,7 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 182006}
   m_IsPrefabParent: 1
---- !u!114 &114325337655004358
+--- !u!114 &114488827138341310
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -231,7 +231,7 @@ MonoBehaviour:
   offset: 0
   duration: 5
   directionRule: 0
---- !u!114 &114382901424006946
+--- !u!114 &114901591646870034
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}

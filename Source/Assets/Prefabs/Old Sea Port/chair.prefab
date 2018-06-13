@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3393982}
   - component: {fileID: 2375292}
   - component: {fileID: 6571128}
-  - component: {fileID: 114825435260888244}
+  - component: {fileID: 114223806215993008}
   m_Layer: 0
   m_Name: chair
   m_TagString: Untagged
@@ -96,7 +96,7 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 149360}
   m_IsPrefabParent: 1
---- !u!114 &114825435260888244
+--- !u!114 &114223806215993008
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}

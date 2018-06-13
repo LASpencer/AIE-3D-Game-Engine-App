@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3352740}
   - component: {fileID: 2306734}
   - component: {fileID: 6464802}
-  - component: {fileID: 114267980070915042}
+  - component: {fileID: 114462639300546346}
   m_Layer: 0
   m_Name: circular_table
   m_TagString: Untagged
@@ -98,7 +98,7 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 113432}
   m_IsPrefabParent: 1
---- !u!114 &114267980070915042
+--- !u!114 &114462639300546346
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}

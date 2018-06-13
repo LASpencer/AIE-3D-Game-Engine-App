@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 3300002}
   - component: {fileID: 2300002}
   - component: {fileID: 6400000}
-  - component: {fileID: 114353405030020960}
+  - component: {fileID: 114805490445836070}
   m_Layer: 0
   m_Name: mooring_rope_holder
   m_TagString: Untagged
@@ -127,7 +127,7 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 100000}
   m_IsPrefabParent: 1
---- !u!114 &114353405030020960
+--- !u!114 &114805490445836070
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}

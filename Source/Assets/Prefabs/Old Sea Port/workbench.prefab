@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3322856}
   - component: {fileID: 2363110}
   - component: {fileID: 6581858}
-  - component: {fileID: 114896460888450130}
+  - component: {fileID: 114799242788814848}
   m_Layer: 0
   m_Name: workbench
   m_TagString: Untagged
@@ -96,7 +96,7 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 101390}
   m_IsPrefabParent: 1
---- !u!114 &114896460888450130
+--- !u!114 &114799242788814848
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}

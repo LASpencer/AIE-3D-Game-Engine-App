@@ -32,10 +32,11 @@ public class PlayerInteraction : MonoBehaviour {
             if (target != null)
             {
                 target.Select();
-            }
-            if (Input.GetButtonDown("Interact"))
-            {
-                target.Interact();
+
+                if (Input.GetButtonDown("Interact"))
+                {
+                    target.Interact();
+                }
             }
         }
 
