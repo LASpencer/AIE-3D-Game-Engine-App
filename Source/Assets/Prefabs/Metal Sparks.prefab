@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 198206958033787550}
   - component: {fileID: 199214926383956046}
   m_Layer: 0
-  m_Name: Stone Sparks
+  m_Name: Metal Sparks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
