@@ -9,7 +9,7 @@ public class PostProcessing : MonoBehaviour {
 
     Camera cam;
 
-    public Material mat;    //HACK
+    public Material fog;    //HACK
 
 
 	// Use this for initialization
@@ -36,18 +36,19 @@ public class PostProcessing : MonoBehaviour {
 		// currently 1 is just fog, rewrite as more passes worked out
 
 		// Filter to get bright areas only
-		Graphics.Blit(source, temp1, mat, 0);
+		Graphics.Blit(source, temp1, fog, 0);
 
 		// Blur for bloom effect
 		//Graphics.Blit(temp1, destination, mat, 1);
-		Graphics.Blit(temp1, temp2, mat, 2);
-		Graphics.Blit (temp2, temp1, mat, 3);
-		mat.SetTexture ("_BaseTex", temp1);
+		Graphics.Blit(temp1, temp2, fog, 2);
+		Graphics.Blit (temp2, temp1, fog, 3);
+		fog.SetTexture ("_BaseTex", temp1);
 
-		// Add to base and apply fog
-		Graphics.Blit(source, destination, mat, 4);
+        // Add to base and apply fog
+        Graphics.Blit(source, destination, fog, 4);
 
-		RenderTexture.ReleaseTemporary(temp1);
-		RenderTexture.ReleaseTemporary(temp2);
+
+        RenderTexture.ReleaseTemporary(temp1);
+        RenderTexture.ReleaseTemporary(temp2);
     }
 }

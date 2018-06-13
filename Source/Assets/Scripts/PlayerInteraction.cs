@@ -4,14 +4,17 @@ using UnityEngine;
 
 public class PlayerInteraction : MonoBehaviour {
 
-	// TODO interact mode
-
 	[SerializeField]
 	Gun gun;
 	[SerializeField]
 	LayerMask shootMask;
     [SerializeField]
+    LayerMask interactMask;
+    [SerializeField]
 	Camera playerCamera;
+
+    [SerializeField]
+    float interactRange;
 
 	// Use this for initialization
 	void Start () {
@@ -20,10 +23,26 @@ public class PlayerInteraction : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(Input.GetButtonDown("Fire1")){
+        //TODO check if player looking at interactable, if so select it. Also, if use button pressed, do it's action
+        RaycastHit interactHit;
+        Ray shootRay = playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+        if (Physics.Raycast(shootRay, out interactHit, interactRange, interactMask, QueryTriggerInteraction.Collide))
+        {
+            Interactable target = interactHit.collider.GetComponent<Interactable>();
+            if (target != null)
+            {
+                target.Select();
+            }
+            if (Input.GetButtonDown("Interact"))
+            {
+                target.Interact();
+            }
+        }
+
+
+		if(Input.GetButtonDown("Fire")){
 			bool canShoot = gun.Fire();
 			RaycastHit gunHit;
-            Ray shootRay = playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
             //TODO figure out why gun not hitting (ray is wrong?)
             if (canShoot && Physics.Raycast (shootRay, out gunHit, 100, shootMask)) {
 				// Get 
