@@ -10,7 +10,7 @@ public class Gun : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         anim = GetComponent<Animator>();
-        audio = GetComponent<AudioSource>();
+        audio = GetComponentInChildren<AudioSource>();
     }
 	
 	// Update is called once per frame
@@ -22,8 +22,7 @@ public class Gun : MonoBehaviour {
         //TODO make gun fire (particle effect + sound effect, animation)
 
         anim.SetTrigger("Shoot");
-
-        // TODO play sound
+        audio.Play();
 
         return true;
 	}
