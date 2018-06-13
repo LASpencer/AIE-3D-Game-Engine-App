@@ -23,13 +23,14 @@ public class PlayerInteraction : MonoBehaviour {
 		if(Input.GetButtonDown("Fire1")){
 			bool canShoot = gun.Fire();
 			RaycastHit gunHit;
-			//TODO figure out why gun not hitting (ray is wrong?)
-			if (canShoot && Physics.Raycast (playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0)), out gunHit, 100, shootMask)) {
+            Ray shootRay = playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+            //TODO figure out why gun not hitting (ray is wrong?)
+            if (canShoot && Physics.Raycast (shootRay, out gunHit, 100, shootMask)) {
 				// Get 
 				HitParticleSpawner particleSpawner = gunHit.collider.GetComponent<HitParticleSpawner>();
                 if (particleSpawner != null)
                 {
-                    particleSpawner.Shoot(gunHit);
+                    particleSpawner.Shoot(gunHit, shootRay);
                 }
 			}
 		}

@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class HitParticleSpawner : MonoBehaviour {
 
+    public enum DirectionRule
+    {
+        normal,
+        reflect
+    }
+
 	[SerializeField]
 	ParticleSystem particles;
 
@@ -12,6 +18,9 @@ public class HitParticleSpawner : MonoBehaviour {
 
     [SerializeField]
     float duration = 5;
+
+    [SerializeField]
+    DirectionRule directionRule = DirectionRule.normal;
 
 	// Use this for initialization
 	void Start () {
@@ -23,11 +32,22 @@ public class HitParticleSpawner : MonoBehaviour {
 		
 	}
 
-	public void Shoot(RaycastHit hit){
-		Vector3 position = hit.point;
+	public void Shoot(RaycastHit hit, Ray ray){
 		Vector3 normal = hit.normal;
-		// TODO spawn particles at point
-		GameObject particleClone = GameObject.Instantiate(particles.gameObject,position + normal * offset, Quaternion.LookRotation(normal));
+        Vector3 position = hit.point + normal * offset;
+        Vector3 direction = new Vector3();
+        switch (directionRule)
+        {
+            case DirectionRule.normal:
+                direction = normal;
+                break;
+            case DirectionRule.reflect:
+                direction = Vector3.Reflect(ray.direction, normal);
+                break;
+        }
+
+        // TODO spawn particles at point
+        GameObject particleClone = GameObject.Instantiate(particles.gameObject,position, Quaternion.LookRotation(direction));
 		ParticleSystem effect = particleClone.GetComponent<ParticleSystem> ();
 		effect.Play ();
 
