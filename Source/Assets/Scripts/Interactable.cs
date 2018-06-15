@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class Interactable : MonoBehaviour {
 
     public string verb;
-    public UnityAction OnInteract;
+    public UnityEvent OnInteract;
 
     [SerializeField]
     Text verbText;
