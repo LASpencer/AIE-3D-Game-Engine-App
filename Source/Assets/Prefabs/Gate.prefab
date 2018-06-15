@@ -199,6 +199,16 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  OnSelect:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnDeselect:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   verbText: {fileID: 114495455187413604}
   displayCanvas: {fileID: 223505767566709408}
 --- !u!114 &114467271984300956
@@ -213,6 +223,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isOpen: 0
+  regularMaterial: {fileID: 2100000, guid: 7a10401e119458544b269a24e3893073, type: 2}
+  highlightMaterial: {fileID: 2100000, guid: 7d74b0dc8f0b3c04bb1a5048c5b98c80, type: 2}
 --- !u!114 &114495455187413604
 MonoBehaviour:
   m_ObjectHideFlags: 1

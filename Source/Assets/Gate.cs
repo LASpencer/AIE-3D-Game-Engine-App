@@ -34,6 +34,7 @@ public class Gate : MonoBehaviour {
 		gateInteraction.OnDeselect.AddListener (DeselectGate);
 
 		gateAnimation.SetBool ("Open", isOpen);
+		gateRenderer.material = regularMaterial;
 	}
 	
 	// Update is called once per frame
@@ -52,10 +53,10 @@ public class Gate : MonoBehaviour {
 	}
 
 	void SelectGate(){
-		// TODO highlight the gate
+		gateRenderer.material = highlightMaterial;
 	}
 
 	void DeselectGate(){
-		// TODO remove highlighting
+		gateRenderer.material = regularMaterial;
 	}
 }
