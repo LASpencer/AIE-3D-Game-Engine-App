@@ -31,7 +31,7 @@ public class Interactable : MonoBehaviour {
         {
             displayCanvas.gameObject.SetActive(true);
             verbText.text = verb;
-			if (!wasSelected ()) {
+			if (!wasSelected) {
 				OnSelect.Invoke ();
 			}
 			wasSelected = true;
