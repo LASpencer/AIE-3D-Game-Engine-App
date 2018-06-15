@@ -8,12 +8,15 @@ public class Interactable : MonoBehaviour {
 
     public string verb;
     public UnityEvent OnInteract;
+	public UnityEvent OnSelect;
+	public UnityEvent OnDeselect;
 
     [SerializeField]
     Text verbText;
     [SerializeField]
     Canvas displayCanvas;
 
+	bool wasSelected;	// Was it selected the previous frame?
     bool selected;
 
 	// Use this for initialization
@@ -28,11 +31,18 @@ public class Interactable : MonoBehaviour {
         {
             displayCanvas.gameObject.SetActive(true);
             verbText.text = verb;
-
+			if (!wasSelected ()) {
+				OnSelect.Invoke ();
+			}
+			wasSelected = true;
             //TODO put selected effect on object
         } else
         {
             displayCanvas.gameObject.SetActive(false);
+			if (wasSelected) {
+				OnDeselect.Invoke ();
+			}
+			wasSelected = false;
         }
 
         selected = false;

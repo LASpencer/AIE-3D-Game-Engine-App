@@ -4,19 +4,24 @@ using UnityEngine;
 
 [RequireComponent(typeof(Interactable))]
 [RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(MeshRenderer))]
 public class Gate : MonoBehaviour {
 
 	Interactable gateInteraction;
 	Animator gateAnimation;
+	MeshRenderer gateRenderer;
 	[SerializeField]
 	bool isOpen;
-
+	[SerializeField]
+	Material regularMaterial;
+	[SerializeField]
+	Material highlightMaterial;
 
 	// Use this for initialization
 	void Start () {
 		gateInteraction = GetComponent<Interactable> ();
 		gateAnimation = GetComponent<Animator> ();
-
+		gateRenderer = GetComponent<MeshRenderer> ();
 
 		if (isOpen) {
 			gateInteraction.verb = "Close";
@@ -25,6 +30,8 @@ public class Gate : MonoBehaviour {
 		}
 
 		gateInteraction.OnInteract.AddListener (toggleGate);
+		gateInteraction.OnSelect.AddListener (SelectGate);
+		gateInteraction.OnDeselect.AddListener (DeselectGate);
 
 		gateAnimation.SetBool ("Open", isOpen);
 	}
@@ -42,5 +49,13 @@ public class Gate : MonoBehaviour {
 			gateInteraction.verb = "Open";
 		}
 		gateAnimation.SetBool ("Open", isOpen);
+	}
+
+	void SelectGate(){
+		// TODO highlight the gate
+	}
+
+	void DeselectGate(){
+		// TODO remove highlighting
 	}
 }
