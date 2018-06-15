@@ -1,10 +1,12 @@
 fileFormatVersion: 2
-guid: 5cf375f9208bd17468242e6d1c3cc819
+guid: 70a98e5cf911406468bb0df6bd402b58
 labels:
 - OldSeaPort
 timeCreated: 1430341564
 licenseType: Store
 NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

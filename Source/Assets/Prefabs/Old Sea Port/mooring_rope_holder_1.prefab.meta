@@ -1,8 +1,10 @@
 fileFormatVersion: 2
-guid: 88b977c6c0cb6f347a2b35f97b16cdc4
+guid: f0a717d2e12ba9844b315b3e5c5d9782
 labels:
 - OldSeaPort
 NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
