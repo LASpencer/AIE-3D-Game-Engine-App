@@ -10,6 +10,7 @@ public class PostProcessing : MonoBehaviour {
     Camera cam;
 
     public Material fog;    //HACK
+	public Material edgeDetection;
 
 
 	// Use this for initialization
@@ -47,6 +48,8 @@ public class PostProcessing : MonoBehaviour {
         // Add to base and apply fog
         Graphics.Blit(source, destination, fog, 4);
 
+		// HACK to test, later have elsewhere and combine
+		//Graphics.Blit (source, destination, edgeDetection);
 
         RenderTexture.ReleaseTemporary(temp1);
         RenderTexture.ReleaseTemporary(temp2);

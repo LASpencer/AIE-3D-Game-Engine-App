@@ -30016,6 +30016,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fog: {fileID: 2100000, guid: 3abe944243418b340b97a09c0efb9bc3, type: 2}
+  edgeDetection: {fileID: 2100000, guid: 17e53b4d6dcc0cb418b7b9f1db8e85a1, type: 2}
 --- !u!4 &1930731835 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 55fecf1063fe8474493f4866aaadffbf, type: 2}
