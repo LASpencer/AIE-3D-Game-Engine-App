@@ -11,7 +11,9 @@ public class PostProcessing : MonoBehaviour {
 
     public Material fog;    //HACK
 	public Material edgeDetection;
+    public Material visor;  //HACK
 
+    //TODO figure out if different settings for this, or have multiple cameras
 
 	// Use this for initialization
 	void Start () {
@@ -46,10 +48,11 @@ public class PostProcessing : MonoBehaviour {
 		fog.SetTexture ("_BaseTex", temp1);
 
         // Add to base and apply fog
-        Graphics.Blit(source, destination, fog, 4);
+        //Graphics.Blit(source, destination, fog, 4);
 
-		// HACK to test, later have elsewhere and combine
-		//Graphics.Blit (source, destination, edgeDetection);
+        // HACK to test, later have elsewhere and combine
+        //Graphics.Blit (source, destination, edgeDetection);
+        Graphics.Blit(source, destination, visor);
 
         RenderTexture.ReleaseTemporary(temp1);
         RenderTexture.ReleaseTemporary(temp2);
