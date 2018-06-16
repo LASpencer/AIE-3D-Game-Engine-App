@@ -1,5 +1,8 @@
 #include "UnityCG.cginc"
 
+#ifndef __KERNEL_CGINC__
+#define __KERNEL_CGINC__
+
 fixed4 filterKernel(float3x3 kernel, float scale, sampler2D tex, float2 texelSize, float2 uv)
 {
 	fixed4 colour = fixed4(0,0,0,0);
@@ -12,3 +15,5 @@ fixed4 filterKernel(float3x3 kernel, float scale, sampler2D tex, float2 texelSiz
 	}
 	return colour * scale;
 }
+
+#endif

@@ -1,6 +1,9 @@
 #include "UnityCG.cginc"
 #include "Kernel.cginc"
 
+#ifndef __FOG_EFFECT_CGINC__
+#define __FOG_EFFECT_CGINC__
+
 struct appdata
 {
 	float4 vertex : POSITION;
@@ -92,3 +95,5 @@ fixed4 fogEffect(v2f i) : SV_Target
 	//return depthNormal;
 	//return float4(depth, depth, depth, 1);
 }
+
+#endif
