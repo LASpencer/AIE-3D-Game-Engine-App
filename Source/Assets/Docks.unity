@@ -9054,19 +9054,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 55fecf1063fe8474493f4866aaadffbf, type: 2}
       propertyPath: m_LocalRotation.x
-      value: -0.6879981
+      value: -0.68799806
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 55fecf1063fe8474493f4866aaadffbf, type: 2}
       propertyPath: m_LocalRotation.y
-      value: -0.16327515
+      value: -0.16327514
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 55fecf1063fe8474493f4866aaadffbf, type: 2}
       propertyPath: m_LocalRotation.z
-      value: -0.16327506
+      value: -0.16327505
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 55fecf1063fe8474493f4866aaadffbf, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 0.687998
+      value: 0.68799794
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 55fecf1063fe8474493f4866aaadffbf, type: 2}
       propertyPath: m_LocalScale.x
@@ -11449,19 +11449,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 55fecf1063fe8474493f4866aaadffbf, type: 2}
       propertyPath: m_LocalRotation.x
-      value: -0.6879981
+      value: -0.68799806
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 55fecf1063fe8474493f4866aaadffbf, type: 2}
       propertyPath: m_LocalRotation.y
-      value: -0.16327515
+      value: -0.16327514
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 55fecf1063fe8474493f4866aaadffbf, type: 2}
       propertyPath: m_LocalRotation.z
-      value: -0.16327506
+      value: -0.16327505
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 55fecf1063fe8474493f4866aaadffbf, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 0.687998
+      value: 0.68799794
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 55fecf1063fe8474493f4866aaadffbf, type: 2}
       propertyPath: m_RootOrder
@@ -18523,6 +18523,7 @@ GameObject:
   - component: {fileID: 1083818680}
   - component: {fileID: 1083818683}
   - component: {fileID: 1083818682}
+  - component: {fileID: 1083818681}
   m_Layer: 0
   m_Name: Gun Camera
   m_TagString: Untagged
@@ -18543,6 +18544,24 @@ Transform:
   m_Father: {fileID: 1927788030}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1083818681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1083818679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12f1213dff43a0f46bb7636aade13b5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fog: {fileID: 2100000, guid: 3abe944243418b340b97a09c0efb9bc3, type: 2}
+  edgeDetection: {fileID: 2100000, guid: 17e53b4d6dcc0cb418b7b9f1db8e85a1, type: 2}
+  visor: {fileID: 2100000, guid: be88d9cc681fcc94ca7979560bd70135, type: 2}
+  blend: {fileID: 2100000, guid: 4d07a0e28f49792488e3e93344e51dd5, type: 2}
+  drawEdges: 1
+  drawFog: 1
+  drawVisor: 1
 --- !u!124 &1083818682
 Behaviour:
   m_ObjectHideFlags: 0
@@ -24693,6 +24712,7 @@ GameObject:
   - component: {fileID: 1499921690}
   - component: {fileID: 1499921693}
   - component: {fileID: 1499921692}
+  - component: {fileID: 1499921691}
   m_Layer: 0
   m_Name: UI Camera
   m_TagString: Untagged
@@ -24713,6 +24733,24 @@ Transform:
   m_Father: {fileID: 1927788030}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1499921691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1499921689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12f1213dff43a0f46bb7636aade13b5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fog: {fileID: 2100000, guid: 3abe944243418b340b97a09c0efb9bc3, type: 2}
+  edgeDetection: {fileID: 2100000, guid: 17e53b4d6dcc0cb418b7b9f1db8e85a1, type: 2}
+  visor: {fileID: 2100000, guid: be88d9cc681fcc94ca7979560bd70135, type: 2}
+  blend: {fileID: 2100000, guid: 4d07a0e28f49792488e3e93344e51dd5, type: 2}
+  drawEdges: 0
+  drawFog: 0
+  drawVisor: 1
 --- !u!124 &1499921692
 Behaviour:
   m_ObjectHideFlags: 0
@@ -30018,6 +30056,10 @@ MonoBehaviour:
   fog: {fileID: 2100000, guid: 3abe944243418b340b97a09c0efb9bc3, type: 2}
   edgeDetection: {fileID: 2100000, guid: 17e53b4d6dcc0cb418b7b9f1db8e85a1, type: 2}
   visor: {fileID: 2100000, guid: be88d9cc681fcc94ca7979560bd70135, type: 2}
+  blend: {fileID: 2100000, guid: 4d07a0e28f49792488e3e93344e51dd5, type: 2}
+  drawEdges: 1
+  drawFog: 1
+  drawVisor: 1
 --- !u!4 &1930731835 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 55fecf1063fe8474493f4866aaadffbf, type: 2}
