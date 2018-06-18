@@ -143,6 +143,7 @@ GameObject:
   - component: {fileID: 4850112865938330}
   - component: {fileID: 137896684699790576}
   - component: {fileID: 64204813528056782}
+  - component: {fileID: 114369925557698948}
   m_Layer: 10
   m_Name: BasicBandit_Clothes
   m_TagString: Untagged
@@ -234,6 +235,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4938827857010846}
   - component: {fileID: 137859332486887366}
+  - component: {fileID: 114862808626335208}
   m_Layer: 10
   m_Name: BasicBandit_Mask
   m_TagString: Untagged
@@ -460,6 +462,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4986116350576286}
   - component: {fileID: 137580887170717464}
+  - component: {fileID: 114135373757337770}
   m_Layer: 10
   m_Name: BasicBandit_Eye
   m_TagString: Untagged
@@ -492,6 +495,7 @@ GameObject:
   - component: {fileID: 4180197035179260}
   - component: {fileID: 137409389618472372}
   - component: {fileID: 64552017237815110}
+  - component: {fileID: 114322022762361452}
   m_Layer: 10
   m_Name: BasicBandit_Body
   m_TagString: Untagged
@@ -2275,6 +2279,20 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114135373757337770
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1345780706539844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f090097fb0574bc4f8f239a1de724792, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materials:
+  - {fileID: 2100000, guid: b473d2dbc3df47f4180f1e7647543b91, type: 2}
+  - {fileID: 2100000, guid: 659268b7c941f81459ebf9d1f9ea26e0, type: 2}
 --- !u!114 &114284999168120070
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2308,6 +2326,34 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Bandit
+--- !u!114 &114322022762361452
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1362907662950278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f090097fb0574bc4f8f239a1de724792, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materials:
+  - {fileID: 2100000, guid: af7ee246303972a4e970cde0512e99f9, type: 2}
+  - {fileID: 2100000, guid: 659268b7c941f81459ebf9d1f9ea26e0, type: 2}
+--- !u!114 &114369925557698948
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1087922976671620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f090097fb0574bc4f8f239a1de724792, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materials:
+  - {fileID: 2100000, guid: 194a8e2f6b2c9474ca67d01b0cd1f5cd, type: 2}
+  - {fileID: 2100000, guid: 659268b7c941f81459ebf9d1f9ea26e0, type: 2}
 --- !u!114 &114376437943738352
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2319,6 +2365,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ead3099bd59f5441b8421a2bf12e0e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  infoCanvas: {fileID: 223582173777595988}
 --- !u!114 &114433187243920560
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2356,6 +2403,20 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &114862808626335208
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1124366556185288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f090097fb0574bc4f8f239a1de724792, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materials:
+  - {fileID: 2100000, guid: 194a8e2f6b2c9474ca67d01b0cd1f5cd, type: 2}
+  - {fileID: 2100000, guid: 659268b7c941f81459ebf9d1f9ea26e0, type: 2}
 --- !u!137 &137409389618472372
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
