@@ -3,6 +3,7 @@
 	Properties
 	{
 		_MainTex ("Texture", 2D) = "white" {}
+		_LensPower ("Lens Power", Range(0,2)) = 1
 	}
 	SubShader
 	{
