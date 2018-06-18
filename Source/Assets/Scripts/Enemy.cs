@@ -9,10 +9,17 @@ public class Enemy : MonoBehaviour {
     [SerializeField]
     Canvas infoCanvas;
 
+    [SerializeField]
+    float maxHealth = 100;
+
+    [SerializeField]
+    float health;
+
 	// Use this for initialization
 	void Start () {
         GameManager.instance.OnEnemySpawn(this);
         materialSwappers = new List<MaterialSwapper>(GetComponentsInChildren<MaterialSwapper>());
+        health = maxHealth;
 	}
 	
 	// Update is called once per frame
