@@ -18,6 +18,8 @@ public class PostProcessing : MonoBehaviour {
     public bool drawFog;
     public bool drawVisor;
 
+    public bool edgeOnly;
+
     //TODO figure out if different settings for this, or have multiple cameras
 
 	// Use this for initialization
@@ -60,8 +62,14 @@ public class PostProcessing : MonoBehaviour {
 
             if (drawEdges)
             {
-                // TODO further stuff with edges
-                Graphics.Blit (source, edgeRender, edgeDetection);
+                //// 2 pass Gaussian blur
+                //Graphics.Blit(source, temp1, edgeDetection, 0);
+                //Graphics.Blit(temp1, temp2, edgeDetection, 1);
+                // Detect edges
+                //Graphics.Blit(temp2, edgeRender, edgeDetection, 2);
+
+                // depth based edges
+                Graphics.Blit(source, edgeRender, edgeDetection, 3);
             }
 
             RenderTexture toDistort;
@@ -73,9 +81,16 @@ public class PostProcessing : MonoBehaviour {
                 toDistort = temp1;
             } else if (drawEdges)
             {
-                blend.SetTexture("_BaseTex", edgeRender);
-                Graphics.Blit(source, temp1, blend);
-                toDistort = temp1;
+                if (edgeOnly)
+                {
+                    toDistort = edgeRender;
+                }
+                else
+                {
+                    blend.SetTexture("_BaseTex", edgeRender);
+                    Graphics.Blit(source, temp1, blend);
+                    toDistort = temp1;
+                }
             } else if (drawFog)
             {
                 toDistort = fogRender;

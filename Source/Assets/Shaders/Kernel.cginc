@@ -1,4 +1,6 @@
 #include "UnityCG.cginc"
+// Upgrade NOTE: excluded shader from DX11 because it uses wrong array syntax (type[size] name)
+#pragma exclude_renderers d3d11
 
 #ifndef __KERNEL_CGINC__
 #define __KERNEL_CGINC__
@@ -34,5 +36,4 @@ float depthFilterKernel(float3x3 kernel, float scale, sampler2D tex, float2 texe
 	}
 	return value * scale;
 }
-
 #endif

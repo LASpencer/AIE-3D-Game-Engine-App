@@ -13,12 +13,15 @@ public class PlayerInteraction : MonoBehaviour {
     [SerializeField]
 	Camera playerCamera;
 
+    VisorController visor;
+
     [SerializeField]
     float interactRange;
 
 	// Use this for initialization
 	void Start () {
 		playerCamera = GetComponentInChildren<Camera> ();
+        visor = GetComponent<VisorController>();
 	}
 	
 	// Update is called once per frame
@@ -41,18 +44,26 @@ public class PlayerInteraction : MonoBehaviour {
         }
 
 
-		if(Input.GetButtonDown("Fire")){
-			bool canShoot = gun.Fire();
-			RaycastHit gunHit;
+        if (Input.GetButtonDown("Fire"))
+        {
+            bool canShoot = gun.Fire();
+            RaycastHit gunHit;
             //TODO figure out why gun not hitting (ray is wrong?)
-            if (canShoot && Physics.Raycast (shootRay, out gunHit, 100, shootMask)) {
-				// Get 
-				HitParticleSpawner particleSpawner = gunHit.collider.GetComponent<HitParticleSpawner>();
-                if (particleSpawner != null)
+            if (canShoot)
+            {
+                // Shooting disables visor
+                visor.SetVisor(false);
+
+                if (Physics.Raycast(shootRay, out gunHit, 100, shootMask))
                 {
-                    particleSpawner.Shoot(gunHit, shootRay);
+                    // Get 
+                    HitParticleSpawner particleSpawner = gunHit.collider.GetComponent<HitParticleSpawner>();
+                    if (particleSpawner != null)
+                    {
+                        particleSpawner.Shoot(gunHit, shootRay);
+                    }
                 }
-			}
-		}
+            }
+        }
 	}
 }

@@ -10,14 +10,49 @@
 				// No culling or depth
 				Cull Off ZWrite Off ZTest Always
 		
-		Pass
-		{
-			CGPROGRAM
-			#pragma vertex vert
-			#pragma fragment detectDepthEdges
+			//0: Horizontal blur
+			Pass
+			{
+				CGPROGRAM
+				#pragma vertex vert
+				#pragma fragment linearBlur
 
-			#include "OutlineEffect.cginc"
-			ENDCG
-		}
+				#include "OutlineEffect.cginc"
+				ENDCG
+			}
+
+			//1: Vertical blur
+			Pass
+			{
+				CGPROGRAM
+				#define VERTICAL 1
+				#pragma vertex vert
+				#pragma fragment linearBlur
+				#include "OutlineEffect.cginc"
+				ENDCG
+			}
+
+			// 2: Detect edges
+			Pass
+			{
+				
+				CGPROGRAM
+				#pragma vertex vert
+				#pragma fragment detectEdges
+
+				#include "OutlineEffect.cginc"
+				ENDCG
+			}
+
+			// 3: Detect edges by depth
+			Pass
+			{
+				CGPROGRAM
+				#pragma vertex vert
+				#pragma fragment detectDepthEdges
+
+				#include "OutlineEffect.cginc"
+				ENDCG
+			}
 	}
 }

@@ -66,4 +66,20 @@ float edge = sqrt(sobelX * sobelX + sobelY + sobelY);
 return _Colour * edge;
 }
 
+fixed4 linearBlur(v2f i) : SV_Target
+{
+	fixed4 colour = { 0,0,0,0 };
+	float kernel[5] = {0.06136,0.24477,0.38774,0.24477, 0.06136 };
+	float scale = 1;
+	for (int j = 0; j < 5; ++j) {
+	#if VERTICAL
+		float2 sampleOffset = float2(0, 2 - j);
+	#else
+		float2 sampleOffset = float2(j - 2, 0);
+	#endif
+		colour += tex2D(_MainTex, i.uv + sampleOffset * _MainTex_TexelSize.xy) * kernel[j];
+	}
+	return colour * scale;
+}
+
 #endif
