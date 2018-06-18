@@ -30,12 +30,17 @@ public class Interactable : MonoBehaviour {
         if (selected)
         {
             displayCanvas.gameObject.SetActive(true);
+
+            if(Vector3.Dot(Camera.main.transform.forward, displayCanvas.transform.forward) < 0)
+            {
+                displayCanvas.transform.forward = -displayCanvas.transform.forward;
+            }
+
             verbText.text = verb;
 			if (!wasSelected) {
 				OnSelect.Invoke ();
 			}
 			wasSelected = true;
-            //TODO put selected effect on object
         } else
         {
             displayCanvas.gameObject.SetActive(false);
