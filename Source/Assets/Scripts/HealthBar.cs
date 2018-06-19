@@ -4,12 +4,16 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(RectTransform))]
 public class HealthBar : MonoBehaviour {
 
     public float health;
     public float maxHealth;
     public float damage = 0;
     public float drainRate = 0.5f;
+
+    bool deathFinished = false;
+    public bool DeathFinished {  get { return deathFinished; } }
 
     [SerializeField]
     Image backgroundSprite;
@@ -19,7 +23,15 @@ public class HealthBar : MonoBehaviour {
     Image healthSprite;
 
     [SerializeField]
+    ParticleSystem deathEffect;
+
+    [SerializeField]
+    ParticleSystem hitEffect;
+
+    [SerializeField]
     Animator anim;
+
+    RectTransform rect;
 
 	// Use this for initialization
 	void Start () {
@@ -28,6 +40,7 @@ public class HealthBar : MonoBehaviour {
         healthSprite.fillAmount = 1;
 
         anim = GetComponent<Animator>();
+        rect = GetComponent<RectTransform>();
 	}
 	
 	// Update is called once per frame
@@ -47,8 +60,28 @@ public class HealthBar : MonoBehaviour {
 
     public void InflictDamage(float amount)
     {
-        damage += amount;
-        health -= amount;
+        SpawnHitEffect(health / maxHealth);
+        damage += Mathf.Min(amount, health);
+        health = Mathf.Max(0, health - amount);
         anim.SetTrigger("Damaged");
+    }
+
+    public void OnDeath()
+    {
+        deathEffect.Play();
+    }
+
+    public void OnFinishDeath()
+    {
+        deathFinished = true;
+        deathEffect.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+    }
+
+    public void SpawnHitEffect(float barProportion)
+    {
+        Vector3 pos = new Vector3(rect.rect.width * (barProportion - 0.5f), 0, 0);
+        GameObject hitClone = GameObject.Instantiate(hitEffect.gameObject, this.transform);
+        hitClone.transform.localPosition = pos;
+        GameObject.Destroy(hitClone, 1);
     }
 }
