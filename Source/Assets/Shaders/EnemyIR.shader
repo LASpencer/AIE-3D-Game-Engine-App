@@ -5,7 +5,13 @@
 		_MainTex ("Texture", 2D) = "white" {}
 		_Colour("Colour", Color) = (1,0,0,1)
 		_RimColour("Rim Colour", Color) = (0.8,0.5,0.2,1)
+		_FuzzColour("Fuzz Colour", Color) = (0.5,0.8,0.5,1)
 		_RimPower("Rim Power", Range(0.5, 30.0)) = 10
+		_RowHeight("Row Height", Range(1,5)) = 1
+		_RowCutoff("Row Cutoff", Range(0,1)) = 0.5
+		_FuzzHeight("Fuzz Height", Range(1,200)) = 10
+		_FuzzSpeed("Fuzz Speed", Range(0,5)) = 1
+		_FuzzPower("Fuzz Power", Range(0.5, 10)) = 1
 	}
 	SubShader
 	{
@@ -42,7 +48,13 @@
 			float4 _MainTex_ST;
 			fixed4 _Colour;
 			fixed4 _RimColour;
+			fixed4 _FuzzColour;
 			float _RimPower;
+			float _RowHeight;
+			float _RowCutoff;
+			float _FuzzHeight;
+			float _FuzzSpeed;
+			float _FuzzPower;
 			
 			v2f vert (appdata_base v)
 			{
@@ -66,8 +78,13 @@
 				fixed4 col = fixed4(lerp(rimCol.rgb, mainCol.rgb, rimCol.a), mainCol.a * rimCol.a);
 
 				//TODO scanlines
+				float time = _Time.y;
+				float4 screenPos = ComputeScreenPos(i.vertex);
+				clip(frac(screenPos.y / _RowHeight) - _RowCutoff);
 
-				return col;
+				float fuzzAmount = frac( (screenPos.y / _FuzzHeight) + time * _FuzzSpeed);
+
+				return lerp(col, _FuzzColour ,pow(fuzzAmount, _FuzzPower));
 			}
 			ENDCG
 		}

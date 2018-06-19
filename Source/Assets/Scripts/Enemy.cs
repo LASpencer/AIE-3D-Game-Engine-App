@@ -18,7 +18,6 @@ public class Enemy : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         GameManager.instance.OnEnemySpawn(this);
-        materialSwappers = new List<MaterialSwapper>(GetComponentsInChildren<MaterialSwapper>());
         health = maxHealth;
 	}
 	
@@ -30,23 +29,5 @@ public class Enemy : MonoBehaviour {
     private void OnDestroy()
     {
         GameManager.instance.OnEnemyDestroyed(this);
-    }
-
-    public void SetVisor(bool visorOn)
-    {
-        if (visorOn)
-        {
-            foreach(MaterialSwapper m in materialSwappers)
-            {
-                m.setMaterial(1);
-            } 
-        }
-        else
-        {
-            foreach(MaterialSwapper m in materialSwappers)
-            {
-                m.setMaterial(0);
-            }
-        }
     }
 }

@@ -53,9 +53,5 @@ public class VisorController : MonoBehaviour {
             gunCamera.drawVisor = false;
             enemyCamera.gameObject.SetActive(false);
         }
-        foreach(Enemy e in GameManager.instance.Enemies)
-        {
-            e.SetVisor(visorOn);
-        }
     }
 }

@@ -12,7 +12,7 @@ public class MaterialSwapper : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         renderer = GetComponent<Renderer>();
-        renderer.material = materials[0];
+        //renderer.material = materials[0];
 	}
 	
 	// Update is called once per frame

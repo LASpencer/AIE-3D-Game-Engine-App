@@ -15914,11 +15914,6 @@ Prefab:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1927788034}
-    - target: {fileID: 137896684699790576, guid: 5ace45b0cb1e1bd46a041956ccd739d4,
-        type: 2}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 194a8e2f6b2c9474ca67d01b0cd1f5cd, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5ace45b0cb1e1bd46a041956ccd739d4, type: 2}
   m_IsPrefabParent: 0
@@ -19183,6 +19178,11 @@ Prefab:
     - target: {fileID: 4435160084891248, guid: e0ec669ad5f84d441bff8fddce779c42, type: 2}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 20633424869044412, guid: e0ec669ad5f84d441bff8fddce779c42,
+        type: 2}
+      propertyPath: m_CullingMask.m_Bits
+      value: 4294965471
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e0ec669ad5f84d441bff8fddce779c42, type: 2}
