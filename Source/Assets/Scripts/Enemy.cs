@@ -33,6 +33,7 @@ public class Enemy : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.K))
         {
             healthBar.InflictDamage(10);
+            health -= 10;
         }
 	}
 
