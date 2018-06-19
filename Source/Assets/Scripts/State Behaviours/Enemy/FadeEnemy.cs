@@ -16,7 +16,13 @@ public class FadeEnemy : StateMachineBehaviour {
 
             foreach(Renderer r in e.defaultRenderers)
             {
-                r.material.SetFloat("_Mode", 3);
+                r.material.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.One);
+                r.material.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
+                r.material.SetInt("_ZWrite", 0);
+                r.material.DisableKeyword("_ALPHATEST_ON");
+                r.material.DisableKeyword("_ALPHABLEND_ON");
+                r.material.EnableKeyword("_ALPHAPREMULTIPLY_ON");
+                r.material.renderQueue = 3000;
             }
         }
 	}

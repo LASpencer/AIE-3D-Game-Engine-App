@@ -45,7 +45,7 @@ public class Enemy : MonoBehaviour {
             m_animator.SetTrigger("Fade");
             //TODO make Fade state (and state machine behaviour) causing them to fade out
             //HACK figure out if there's a better way to do this?
-            GameObject.Destroy(this.gameObject, 2);
+            GameObject.Destroy(this.gameObject, 5);
         }
 	}
 
