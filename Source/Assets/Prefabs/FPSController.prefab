@@ -665,7 +665,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294966495
+    m_Bits: 4294965471
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -1565,6 +1565,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shell: {fileID: 0}
   rof: 0.3
+  damage: 20
+  headshotBonus: 2
 --- !u!114 &114911362929793172
 MonoBehaviour:
   m_ObjectHideFlags: 1

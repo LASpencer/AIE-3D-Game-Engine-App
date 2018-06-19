@@ -16,6 +16,9 @@ public class Gun : MonoBehaviour {
 
     float shotCD = 0;
 
+    public float damage = 20;
+    public float headshotBonus = 2;
+
 	// Use this for initialization
 	void Start () {
         anim = GetComponent<Animator>();

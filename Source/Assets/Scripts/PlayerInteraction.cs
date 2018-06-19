@@ -54,13 +54,26 @@ public class PlayerInteraction : MonoBehaviour {
                 // Shooting disables visor
                 visor.SetVisor(false);
 
+                Debug.DrawRay(shootRay.origin, shootRay.direction,Color.white,1);
+
                 if (Physics.Raycast(shootRay, out gunHit, 100, shootMask))
                 {
                     // Get 
                     HitParticleSpawner particleSpawner = gunHit.collider.GetComponent<HitParticleSpawner>();
+                    Enemy enemy = gunHit.collider.GetComponentInParent<Enemy>();
                     if (particleSpawner != null)
                     {
                         particleSpawner.Shoot(gunHit, shootRay);
+                    }
+                    if(enemy != null)
+                    {
+                        bool headshot = gunHit.collider.CompareTag("Head");
+                        float damage = gun.damage;
+                        if (headshot)
+                        {
+                            damage *= gun.headshotBonus;
+                        }
+                        enemy.InflictDamage(damage);
                     }
                 }
             }
