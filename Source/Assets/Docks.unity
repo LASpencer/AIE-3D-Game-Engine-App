@@ -23,7 +23,7 @@ RenderSettings:
   m_AmbientSkyColor: {r: 0.35588235, g: 0.5, b: 0.5852941, a: 0.75}
   m_AmbientEquatorColor: {r: 0.35588235, g: 0.5, b: 0.5852941, a: 0.75}
   m_AmbientGroundColor: {r: 0.35588235, g: 0.5, b: 0.5852941, a: 0.75}
-  m_AmbientIntensity: 0.3
+  m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 2100000, guid: fa231042141b62943bf62a7eec685939, type: 2}
@@ -19798,6 +19798,11 @@ Prefab:
         type: 2}
       propertyPath: m_CullingMask.m_Bits
       value: 4294961375
+      objectReference: {fileID: 0}
+    - target: {fileID: 20633424869044412, guid: e0ec669ad5f84d441bff8fddce779c42,
+        type: 2}
+      propertyPath: m_ClearFlags
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e0ec669ad5f84d441bff8fddce779c42, type: 2}
