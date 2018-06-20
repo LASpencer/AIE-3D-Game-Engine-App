@@ -1,8 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.Characters.ThirdPerson;
+using UnityEngine.AI;
 
 [RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(NavMeshAgent))]
+[RequireComponent(typeof(ThirdPersonCharacter))]
+[RequireComponent(typeof(NavMeshObstacle))]
 public class Enemy : MonoBehaviour {
 
     [SerializeField]
@@ -18,9 +23,20 @@ public class Enemy : MonoBehaviour {
     HealthBar healthBar;
 
     Animator m_animator;
+    NavMeshAgent agent;
+    ThirdPersonCharacter character;
+    NavMeshObstacle obstacle;
+
+    bool alive;
 
     public List<Renderer> defaultRenderers;
     public List<Renderer> irRenderers;
+
+    public Transform currentGoal;
+    public float arrivalDistance;
+
+    [SerializeField]
+    float stepModifier = 1;
 
     //TODO create AIController class to manage movement animations and navmeshagent stuff
 
@@ -33,19 +49,51 @@ public class Enemy : MonoBehaviour {
         healthBar.health = health;
 
         m_animator = GetComponent<Animator>();
-	}
+        agent = GetComponent<NavMeshAgent>();
+        obstacle = GetComponent<NavMeshObstacle>();
+        character = GetComponent<ThirdPersonCharacter>();
+
+        agent.updateRotation = false;
+        agent.updatePosition = true;
+
+        obstacle.enabled = false;
+
+        alive = true;
+
+        currentGoal = GameManager.instance.GetRandomGoal(null);
+        agent.SetDestination(currentGoal.position);
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
         infoCanvas.transform.forward = Camera.main.transform.forward;
 
-        //TODO handle being killed
-        if(health <= 0 && healthBar.DeathFinished)
+        if (alive)
         {
-            m_animator.SetTrigger("Fade");
-            //TODO make Fade state (and state machine behaviour) causing them to fade out
-            //HACK figure out if there's a better way to do this?
-            GameObject.Destroy(this.gameObject, 5);
+            if(agent.pathStatus != NavMeshPathStatus.PathComplete || Vector3.Distance(transform.position, currentGoal.position) < arrivalDistance)
+            {
+                currentGoal = GameManager.instance.GetRandomGoal(currentGoal);
+                agent.SetDestination(currentGoal.position);
+            }
+            if(agent.remainingDistance > agent.stoppingDistance)
+            {
+                character.Move(agent.desiredVelocity / stepModifier, false, false);
+            } else
+            {
+                character.Move(Vector3.zero, false, false);
+            }
+        }
+        else
+        {
+
+            character.Move(Vector3.zero, false, false);
+            // fade away and despawn when healthbar animation finishes
+            if (healthBar.DeathFinished)
+            {
+                m_animator.SetTrigger("Fade");
+                GameObject.Destroy(this.gameObject, 5);
+            }
         }
 	}
 
@@ -70,6 +118,10 @@ public class Enemy : MonoBehaviour {
     void Kill()
     {
         m_animator.SetTrigger("Dead");
+        agent.enabled = false;
+        obstacle.enabled = true;
+        currentGoal = null;
         health = 0;
+        alive = false;
     }
 }

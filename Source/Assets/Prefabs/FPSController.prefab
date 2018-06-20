@@ -76,6 +76,7 @@ GameObject:
   - component: {fileID: 82586345947021466}
   - component: {fileID: 114067171294433272}
   - component: {fileID: 114026492963489978}
+  - component: {fileID: 208343705218638844}
   m_Layer: 0
   m_Name: FPSController
   m_TagString: Untagged
@@ -1387,7 +1388,7 @@ MonoBehaviour:
   gun: {fileID: 114782330651381904}
   shootMask:
     serializedVersion: 2
-    m_Bits: 4294966489
+    m_Bits: 4294964441
   interactMask:
     serializedVersion: 2
     m_Bits: 1
@@ -5091,3 +5092,18 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!208 &208343705218638844
+NavMeshObstacle:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1133069547307892}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 0
+  m_Extents: {x: 0.5, y: 0.75, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5

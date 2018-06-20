@@ -56,7 +56,7 @@ public class PlayerInteraction : MonoBehaviour {
 
                 Debug.DrawRay(shootRay.origin, shootRay.direction,Color.white,1);
 
-                if (Physics.Raycast(shootRay, out gunHit, 100, shootMask))
+                if (Physics.Raycast(shootRay, out gunHit, 100, shootMask,QueryTriggerInteraction.Collide))
                 {
                     // Get 
                     HitParticleSpawner particleSpawner = gunHit.collider.GetComponent<HitParticleSpawner>();

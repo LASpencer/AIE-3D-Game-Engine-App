@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour {
 
     public List<Enemy> Enemies { get { return enemies; } }
 
+    public List<Transform> Goals;
+
     private void Awake()
     {
         if(instance == null)
@@ -52,5 +54,20 @@ public class GameManager : MonoBehaviour {
     {
         enemies.Remove(enemy);
         Debug.Log("Enemy destroyed");
+    }
+
+    public Transform GetRandomGoal(Transform lastPicked)
+    {
+        //HACK
+        Transform newGoal = null;
+        while (newGoal == null)
+        {
+            int index = Random.Range(0, Goals.Count);
+            if(lastPicked == null || Goals[index] != lastPicked)
+            {
+                newGoal = Goals[index];
+            }
+        }
+        return newGoal;
     }
 }

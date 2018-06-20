@@ -75,6 +75,7 @@ GameObject:
   - component: {fileID: 95934048087761800}
   - component: {fileID: 114410583112432998}
   - component: {fileID: 114467271984300956}
+  - component: {fileID: 208503056600333668}
   m_Layer: 0
   m_Name: fence_gate 1
   m_TagString: Untagged
@@ -295,6 +296,21 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!208 &208503056600333668
+NavMeshObstacle:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1636465107221344}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.059000004, y: 0.82000005, z: 1.4180001}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0.77400005, z: 1.485}
+  m_TimeToStationary: 0.5
 --- !u!222 &222527715970839358
 CanvasRenderer:
   m_ObjectHideFlags: 1
