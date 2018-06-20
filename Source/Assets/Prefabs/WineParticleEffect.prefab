@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 4586421963144470}
   - component: {fileID: 198238934780902708}
   - component: {fileID: 199612459526484512}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: WineParticleEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -723,7 +723,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 5
+      scalar: 10
       minScalar: 10
       maxCurve:
         serializedVersion: 2
