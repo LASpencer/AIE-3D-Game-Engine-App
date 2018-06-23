@@ -7,6 +7,18 @@ using UnityEngine;
 [RequireComponent(typeof(Camera))]
 public class PostProcessing : MonoBehaviour {
 
+    // Subshader pass indices
+    const int fogBrightnessPrefilter = 0;
+    const int fogBoxBlur = 1;
+    const int fogBlurHorizontal = 2;
+    const int fogBlurVertical = 3;
+    const int fogEffect = 4;
+    const int edgeBlurHorizontal = 0;
+    const int edgeBlurVertical = 1;
+    const int edgeDetectColour = 2;
+    const int edgeDetectDepth = 3;
+
+
     Camera cam;
 
     public Material fog;
@@ -48,28 +60,28 @@ public class PostProcessing : MonoBehaviour {
             if (drawFog)
             {
                 // Filter to get bright areas only
-                Graphics.Blit(source, temp1, fog, 0);
+                Graphics.Blit(source, temp1, fog, fogBrightnessPrefilter);
 
                 // Blur for bloom effect
-                //Graphics.Blit(temp1, destination, mat, 1);
-                Graphics.Blit(temp1, temp2, fog, 2);
-                Graphics.Blit(temp2, temp1, fog, 3);
+                //Graphics.Blit(temp1, destination, mat, fogBoxBlur);
+                Graphics.Blit(temp1, temp2, fog, fogBlurHorizontal);
+                Graphics.Blit(temp2, temp1, fog, fogBlurVertical);
                 fog.SetTexture("_BaseTex", temp1);
 
                 // Add to base and apply fog
-                Graphics.Blit(source, fogRender, fog, 4);
+                Graphics.Blit(source, fogRender, fog, fogEffect);
             }
 
             if (drawEdges)
             {
                 //// 2 pass Gaussian blur
-                //Graphics.Blit(source, temp1, edgeDetection, 0);
-                //Graphics.Blit(temp1, temp2, edgeDetection, 1);
+                //Graphics.Blit(source, temp1, edgeDetection, edgeBlurHorizontal);
+                //Graphics.Blit(temp1, temp2, edgeDetection, edgeBlurVertical);
                 // Detect edges
-                //Graphics.Blit(temp2, edgeRender, edgeDetection, 2);
+                //Graphics.Blit(temp2, edgeRender, edgeDetection, edgeDetectColour);
 
                 // depth based edges
-                Graphics.Blit(source, edgeRender, edgeDetection, 3);
+                Graphics.Blit(source, edgeRender, edgeDetection, edgeDetectDepth);
             }
 
             RenderTexture toDistort;

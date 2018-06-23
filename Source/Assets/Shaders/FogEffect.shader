@@ -16,7 +16,7 @@
 		// No culling or depth
 		Cull Off ZWrite Off ZTest Always
 
-		// 0: pre-filter to only get bring areas
+		// 0: pre-filter to only get bright areas
 		Pass
 		{
 			CGPROGRAM
