@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3339142}
   - component: {fileID: 2398466}
   - component: {fileID: 6415804}
-  - component: {fileID: 114049027065763480}
+  - component: {fileID: 114981186304743594}
   m_Layer: 0
   m_Name: wood_canopy_legs
   m_TagString: Untagged
@@ -30,7 +30,7 @@ GameObject:
   - component: {fileID: 3358910}
   - component: {fileID: 2302788}
   - component: {fileID: 6408808}
-  - component: {fileID: 114617068591825744}
+  - component: {fileID: 114877655535162098}
   m_Layer: 0
   m_Name: wood_canopy_roof
   m_TagString: Untagged
@@ -215,12 +215,12 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 162804}
   m_IsPrefabParent: 1
---- !u!114 &114049027065763480
+--- !u!114 &114877655535162098
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 132328}
+  m_GameObject: {fileID: 136954}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d59c8edf80cb3034ca368ffa4d39ba52, type: 3}
@@ -231,12 +231,12 @@ MonoBehaviour:
   offset: 0
   duration: 5
   directionRule: 0
---- !u!114 &114617068591825744
+--- !u!114 &114981186304743594
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 136954}
+  m_GameObject: {fileID: 132328}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d59c8edf80cb3034ca368ffa4d39ba52, type: 3}

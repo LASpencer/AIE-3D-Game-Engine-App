@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3301972}
   - component: {fileID: 2393946}
   - component: {fileID: 6475108}
-  - component: {fileID: 114374820071074982}
+  - component: {fileID: 114806551997618614}
   m_Layer: 0
   m_Name: brick_wall_1_LOD1
   m_TagString: Untagged
@@ -28,7 +28,6 @@ GameObject:
   m_Component:
   - component: {fileID: 472690}
   - component: {fileID: 20513688}
-  - component: {fileID: 114589669868674706}
   m_Layer: 0
   m_Name: brick_wall_1
   m_TagString: Untagged
@@ -222,28 +221,12 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 137896}
   m_IsPrefabParent: 1
---- !u!114 &114374820071074982
+--- !u!114 &114806551997618614
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 121436}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d59c8edf80cb3034ca368ffa4d39ba52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  particles: {fileID: 198206958033787550, guid: 74d85c1d86dea4d4b946acd6df5c5060,
-    type: 2}
-  offset: 0
-  duration: 3
-  directionRule: 1
---- !u!114 &114589669868674706
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 137896}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d59c8edf80cb3034ca368ffa4d39ba52, type: 3}

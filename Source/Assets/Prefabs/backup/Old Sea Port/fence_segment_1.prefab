@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3379162}
   - component: {fileID: 2389320}
   - component: {fileID: 6539062}
-  - component: {fileID: 114657853347391150}
+  - component: {fileID: 114290993166768926}
   m_Layer: 0
   m_Name: fence_segment_1
   m_TagString: Untagged
@@ -96,7 +96,7 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 196000}
   m_IsPrefabParent: 1
---- !u!114 &114657853347391150
+--- !u!114 &114290993166768926
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -112,3 +112,6 @@ MonoBehaviour:
   offset: 0
   duration: 5
   directionRule: 1
+  playAudio: 1
+  hitAudio: {fileID: 8300000, guid: 4031e628cfc564d93ac39f8955afbbda, type: 3}
+  audioVolume: 0.5

@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 3312802}
   - component: {fileID: 2383098}
   - component: {fileID: 6531626}
-  - component: {fileID: 114373124684816928}
+  - component: {fileID: 114813851151008306}
   m_Layer: 0
   m_Name: plank_4.000
   m_TagString: Untagged
@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 3348516}
   - component: {fileID: 2376006}
   - component: {fileID: 6495860}
-  - component: {fileID: 114941501295888602}
+  - component: {fileID: 114900355161173940}
   m_Layer: 0
   m_Name: log_1.000
   m_TagString: Untagged
@@ -214,7 +214,7 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 100000}
   m_IsPrefabParent: 1
---- !u!114 &114373124684816928
+--- !u!114 &114813851151008306
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -230,7 +230,7 @@ MonoBehaviour:
   offset: 0
   duration: 5
   directionRule: 0
---- !u!114 &114941501295888602
+--- !u!114 &114900355161173940
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}

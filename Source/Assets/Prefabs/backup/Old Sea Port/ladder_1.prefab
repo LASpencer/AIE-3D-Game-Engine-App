@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3386658}
   - component: {fileID: 2328858}
   - component: {fileID: 6507112}
-  - component: {fileID: 114487869051023390}
+  - component: {fileID: 114666881673974798}
   m_Layer: 0
   m_Name: ladder_1
   m_TagString: Untagged
@@ -97,7 +97,7 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 183736}
   m_IsPrefabParent: 1
---- !u!114 &114487869051023390
+--- !u!114 &114666881673974798
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}

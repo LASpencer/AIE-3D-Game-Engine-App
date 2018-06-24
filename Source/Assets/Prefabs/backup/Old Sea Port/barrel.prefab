@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3300000}
   - component: {fileID: 2300000}
   - component: {fileID: 6483434}
-  - component: {fileID: 114849668193217116}
+  - component: {fileID: 114789317936953590}
   m_Layer: 0
   m_Name: barrel
   m_TagString: Untagged
@@ -98,7 +98,7 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 100000}
   m_IsPrefabParent: 1
---- !u!114 &114849668193217116
+--- !u!114 &114789317936953590
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -113,3 +113,4 @@ MonoBehaviour:
     type: 2}
   offset: 0.1
   duration: 15
+  directionRule: 0

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3327082}
   - component: {fileID: 2341134}
   - component: {fileID: 6433940}
-  - component: {fileID: 114766003563675710}
+  - component: {fileID: 114043500141944924}
   m_Layer: 0
   m_Name: building_segment_1
   m_TagString: Untagged
@@ -98,7 +98,7 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 102502}
   m_IsPrefabParent: 1
---- !u!114 &114766003563675710
+--- !u!114 &114043500141944924
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}

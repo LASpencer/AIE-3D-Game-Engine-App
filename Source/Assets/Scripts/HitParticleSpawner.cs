@@ -7,7 +7,10 @@ public class HitParticleSpawner : MonoBehaviour {
     public enum DirectionRule
     {
         normal,
-        reflect
+        reflect,
+        rayDirection,
+        up
+
     }
 
 	[SerializeField]
@@ -52,6 +55,12 @@ public class HitParticleSpawner : MonoBehaviour {
                 break;
             case DirectionRule.reflect:
                 direction = Vector3.Reflect(ray.direction, normal);
+                break;
+            case DirectionRule.rayDirection:
+                direction = ray.direction;
+                break;
+            case DirectionRule.up:
+                direction = Vector3.up;
                 break;
         }
 

@@ -61,6 +61,7 @@ public class PlayerInteraction : MonoBehaviour {
                     // Get 
                     HitParticleSpawner particleSpawner = gunHit.collider.GetComponent<HitParticleSpawner>();
                     Enemy enemy = gunHit.collider.GetComponentInParent<Enemy>();
+                    Destroyable destroyable = gunHit.collider.GetComponent<Destroyable>();
                     if (particleSpawner != null)
                     {
                         particleSpawner.Shoot(gunHit, shootRay);
@@ -74,6 +75,10 @@ public class PlayerInteraction : MonoBehaviour {
                             damage *= gun.headshotBonus;
                         }
                         enemy.InflictDamage(damage);
+                    }
+                    if(destroyable != null)
+                    {
+                        destroyable.Shoot(gun.damage);
                     }
                 }
             }

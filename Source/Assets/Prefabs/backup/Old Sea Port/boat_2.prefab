@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3301628}
   - component: {fileID: 2322422}
   - component: {fileID: 6474306}
+  - component: {fileID: 114204698446033420}
   m_Layer: 0
   m_Name: boat_mast
   m_TagString: Untagged
@@ -62,7 +63,7 @@ GameObject:
   - component: {fileID: 3323024}
   - component: {fileID: 2304800}
   - component: {fileID: 6431428}
-  - component: {fileID: 114970588191100140}
+  - component: {fileID: 114299947889037876}
   m_Layer: 0
   m_Name: boat_body
   m_TagString: Untagged
@@ -373,7 +374,23 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 163286}
   m_IsPrefabParent: 1
---- !u!114 &114970588191100140
+--- !u!114 &114204698446033420
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 132928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d59c8edf80cb3034ca368ffa4d39ba52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particles: {fileID: 198931406091371890, guid: 295a7a29fc1cb5a469446585ebd45ba7,
+    type: 2}
+  offset: 0
+  duration: 5
+  directionRule: 0
+--- !u!114 &114299947889037876
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
