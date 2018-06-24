@@ -49,7 +49,6 @@
 				fixed4 baseCol = tex2D(_BaseTex, i.uv);
 				baseCol.a *= _Alpha;
 				return fixed4(lerp(mainCol.rgb, baseCol.rgb, baseCol.a), mainCol.a * baseCol.a);
-				//return fixed4(mainCol.rgb + baseCol.rgb, mainCol.a);
 			}
 			ENDCG
 		}

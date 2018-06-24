@@ -21,20 +21,12 @@
 		Pass
 		{
 			CGPROGRAM
-// Upgrade NOTE: excluded shader from DX11; has structs without semantics (struct v2f members normal)
-//#pragma exclude_renderers d3d11
 			#pragma vertex vert
 			#pragma fragment frag
 			// make fog work
 			#pragma multi_compile_fog
 			
 			#include "UnityCG.cginc"
-
-			//struct appdata
-			//{
-			//	float4 vertex : POSITION;
-			//	float2 uv : TEXCOORD0;
-			//};
 
 			struct v2f
 			{
@@ -68,22 +60,23 @@
 			
 			fixed4 frag (v2f i) : SV_Target
 			{
-				//TODO figure out a cooler effect than this
 				//Maybe semitransparent and scanlines?
 
+				// Colour based on angle between normal and camera
 				float3 forward = mul((float3x3)unity_CameraToWorld, float3(1,1,0));
 				fixed4 mainCol = _Colour;
 				float rim = 1.0 - saturate(dot(normalize(forward), i.normal));
 				fixed4 rimCol = fixed4(_RimColour.rgb, _RimColour.a * pow(rim, _RimPower));
 				fixed4 col = fixed4(lerp(rimCol.rgb, mainCol.rgb, rimCol.a), mainCol.a * rimCol.a);
 
-				//TODO scanlines
 				float time = _Time.y;
 				float4 screenPos = ComputeScreenPos(i.vertex);
+
+				// Clip gaps between scanlines based on screen space
 				clip(frac(screenPos.y / _RowHeight) - _RowCutoff);
 
+				// Add moving fuzz colour in screen space
 				float fuzzAmount = frac( (screenPos.y / _FuzzHeight) + time * _FuzzSpeed);
-
 				return lerp(col, _FuzzColour ,pow(fuzzAmount, _FuzzPower));
 			}
 			ENDCG
