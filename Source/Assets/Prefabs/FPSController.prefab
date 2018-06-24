@@ -205,6 +205,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1460942342698976
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4360446770496970}
+  m_Layer: 9
+  m_Name: EjectionPort
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1538100606044208
 GameObject:
   m_ObjectHideFlags: 1
@@ -367,6 +382,19 @@ Transform:
   m_Father: {fileID: 4815724386295920}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4360446770496970
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1460942342698976}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0.7071068, w: 0}
+  m_LocalPosition: {x: -0.4600068, y: 2.4200087, z: 1.5200073}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4708111208364102}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 180}
 --- !u!4 &4396451089893990
 Transform:
   m_ObjectHideFlags: 1
@@ -455,6 +483,7 @@ Transform:
   - {fileID: 4941746275586930}
   - {fileID: 4793375727353322}
   - {fileID: 4926221556449826}
+  - {fileID: 4360446770496970}
   m_Father: {fileID: 4399090657209180}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 8.022, y: -180.29199, z: 2.562}
@@ -560,13 +589,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1269889381932448}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 1.4784538, z: 2.94772}
   m_LocalScale: {x: 13.999998, y: 19.999998, z: 19.999998}
   m_Children: []
   m_Father: {fileID: 4708111208364102}
   m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!4 &4941746275586930
 Transform:
   m_ObjectHideFlags: 1
@@ -1564,10 +1593,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85dd84840bf7fd544a5e436218f7fa99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shell: {fileID: 0}
   rof: 0.3
   damage: 20
   headshotBonus: 2
+  shell: {fileID: 1842770437744196, guid: 5561b5bdc31fe4b45b2a19fa1acda785, type: 2}
+  shellPosition: {fileID: 4360446770496970}
+  ejectionSpeed: 1
 --- !u!114 &114911362929793172
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1692,7 +1723,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 400974928
+  randomSeed: -1389858983
   InitialModule:
     serializedVersion: 3
     enabled: 1

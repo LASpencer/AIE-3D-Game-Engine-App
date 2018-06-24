@@ -8,9 +8,8 @@ public class Gun : MonoBehaviour {
     AudioSource audio;
     ParticleSystem gunsmoke;
 
-    [SerializeField]
-    GameObject shell;
 
+    [Header("Combat Stats")]
     [SerializeField]
     float rof = 0.5f;
 
@@ -19,8 +18,19 @@ public class Gun : MonoBehaviour {
     public float damage = 20;
     public float headshotBonus = 2;
 
-	// Use this for initialization
-	void Start () {
+    [Header("Shell Ejection")]
+    [SerializeField]
+    GameObject shell;
+
+    [SerializeField]
+    Transform shellPosition;
+
+    [SerializeField]
+    float ejectionSpeed;
+
+
+    // Use this for initialization
+    void Start () {
         anim = GetComponent<Animator>();
         audio = GetComponentInChildren<AudioSource>();
         gunsmoke = GetComponentInChildren<ParticleSystem>();
@@ -52,4 +62,14 @@ public class Gun : MonoBehaviour {
 	}
 
     //TODO based on animation event, spawn bullet casing
+    public void EjectShell()
+    {
+        GameObject ejected = Instantiate(shell, shellPosition.position, shellPosition.rotation);
+        Rigidbody shellBody = ejected.GetComponent<Rigidbody>();
+        if(shellBody != null)
+        {
+            shellBody.velocity = shellPosition.right * ejectionSpeed;
+        }
+        GameObject.Destroy(ejected, 10);
+    }
 }
