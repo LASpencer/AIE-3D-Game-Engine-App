@@ -22,6 +22,15 @@ public class HitParticleSpawner : MonoBehaviour {
     [SerializeField]
     DirectionRule directionRule = DirectionRule.normal;
 
+    [SerializeField]
+    bool playAudio;
+
+    [SerializeField]
+    AudioClip hitAudio;
+
+    [SerializeField]
+    float audioVolume = 1;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -54,6 +63,12 @@ public class HitParticleSpawner : MonoBehaviour {
         if(duration > 0)
         {
             GameObject.Destroy(particleClone, duration);
+        }
+
+        // Play audio
+        if(playAudio && hitAudio != null)
+        {
+            AudioSource.PlayClipAtPoint(hitAudio, position, audioVolume);
         }
 	}
 }
