@@ -1388,7 +1388,7 @@ MonoBehaviour:
   gun: {fileID: 114782330651381904}
   shootMask:
     serializedVersion: 2
-    m_Bits: 4294964441
+    m_Bits: 4294960345
   interactMask:
     serializedVersion: 2
     m_Bits: 1
@@ -1625,8 +1625,8 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 1.45
-  m_Radius: 0.4
+  m_Height: 1.8
+  m_Radius: 0.5
   m_SlopeLimit: 60
   m_StepOffset: 0.4
   m_SkinWidth: 0.08

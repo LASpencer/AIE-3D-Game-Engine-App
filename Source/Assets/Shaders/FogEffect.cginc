@@ -88,7 +88,7 @@ fixed4 fogEffect(v2f i) : SV_Target
 	//float fogFactor = depth * _Density;
 	float fogFactor = 1 - (exp(-depth * _Density));
 
-	col.xyz = lerp(col.xyz, _FogColour.xyz, saturate(fogFactor));
+	col.xyz = lerp(col.xyz, _FogColour.xyz, saturate(fogFactor) * _FogColour.a);
 
 	return col;
 	// return col + tex2D(_BaseTex, i.uv); //(looks interesting, like a will o wisp thing?)
