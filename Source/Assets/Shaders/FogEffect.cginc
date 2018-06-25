@@ -52,8 +52,6 @@ float3x3 kernel = {	1,1,1,
 					1,1,1,
 					1,1,1};
 return filterKernel(kernel, 1.0/9.0, _MainTex, _MainTex_TexelSize.xy, i.uv);
-//fixed foo = filterKernel(kernel, 1.0/9.0, _MainTex, _MainTex_TexelSize.xy, i.uv).a;
-//return fixed4(foo,foo,foo,foo);
 }
 
 fixed4 linearBlur(v2f i) : SV_Target
@@ -79,13 +77,12 @@ fixed4 fogEffect(v2f i) : SV_Target
 	//fixed4 col = fixed4(lerp(mainCol.rgb, baseCol.rgb, baseCol.a), mainCol.a * baseCol.a);
 	fixed4 col = fixed4(mainCol.rgb + baseCol.rgb, mainCol.a);
 
-	// TODO figure out parameters for fog
 	float4 depthNormal = tex2D(_CameraDepthNormalsTexture, i.uv);
 	float depth;
 	float3 normal;
 	DecodeDepthNormal(depthNormal, depth, normal);
 
-	//float fogFactor = depth * _Density;
+	// Exponential fog factor based on distance to solid object
 	float fogFactor = 1 - (exp(-depth * _Density));
 
 	col.xyz = lerp(col.xyz, _FogColour.xyz, saturate(fogFactor) * _FogColour.a);

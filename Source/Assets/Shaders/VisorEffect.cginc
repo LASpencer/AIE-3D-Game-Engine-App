@@ -24,6 +24,7 @@ float2 FishEye(float2 uv) {
 	float2 direction = normalize(uv - mid);
 	float distortedRadius = pow(distanceFromFocus, _LensPower);
 
+	// Make sure distortion doesn't go outside 0-1 range
 	if (_LensPower < 1) {
 		float scaling = 0.5 * pow(0.5, -_LensPower);
 		distortedRadius *= scaling;

@@ -41,8 +41,9 @@
 		UNITY_INSTANCING_BUFFER_END(Props)
 
 		void surf (Input IN, inout SurfaceOutputStandard o) {
+
+			// Highlight intensity changing over time
 			fixed highlightIntesity = 0.5 * (1 + sin(_Time.y * _Rate));
-			//fixed highlightIntesity = 0.5 * (1 + _SinTime.w);
 
 			// Albedo comes from a texture tinted by color
 			fixed4 c = tex2D (_MainTex, IN.uv_MainTex) * _Color;

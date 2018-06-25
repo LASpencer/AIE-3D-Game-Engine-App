@@ -29,9 +29,9 @@ v2f vert(appdata v)
 	return o;
 }
 
+// Sobel edge detection by colour
 fixed4 detectEdges(v2f i) : SV_Target
 {
-	//TODO extract to cginc, have multiple passes (blur first?)
 
 	float3x3 xKernel = { 1,0,-1,
 						2,0,-2,
@@ -46,9 +46,9 @@ fixed4 sobelY = filterKernel(yKernel, 1, _MainTex, _MainTex_TexelSize.xy, i.uv);
 fixed4 edge = sqrt(sobelX * sobelX + sobelY + sobelY);
 fixed lum = (edge.r + edge.g + edge.b) / 3.0;
 return _Colour * lum;
-//TODO convert to greyscale and multiply by colour
 }
 
+// Sobel edge detection by depth buffer
 fixed4 detectDepthEdges(v2f i) : SV_Target
 {
 	float3x3 xKernel = {1,0,-1,
