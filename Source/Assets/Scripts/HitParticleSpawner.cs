@@ -2,14 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Spawns particle effect and optional audio when shot
 public class HitParticleSpawner : MonoBehaviour {
 
     public enum DirectionRule
     {
-        normal,
-        reflect,
-        rayDirection,
-        up
+        normal,         // Effect oriented to normal
+        reflect,        // Effect is ray reflected by normal
+        rayDirection,   // Effect oriented to incoming ray
+        up              // Effect oriented up
 
     }
 
@@ -17,10 +18,10 @@ public class HitParticleSpawner : MonoBehaviour {
 	ParticleSystem particles;
 
     [SerializeField]
-    float offset = 0;
+    float offset = 0;   // distance from point of contact to spawn effect
 
     [SerializeField]
-    float duration = 5;
+    float duration = 5; // Time until effect destroyed
 
     [SerializeField]
     DirectionRule directionRule = DirectionRule.normal;
@@ -47,6 +48,7 @@ public class HitParticleSpawner : MonoBehaviour {
 	public void Shoot(RaycastHit hit, Ray ray){
 		Vector3 normal = hit.normal;
         Vector3 position = hit.point + normal * offset;
+        // Orient effect based on rul
         Vector3 direction = new Vector3();
         switch (directionRule)
         {
@@ -64,7 +66,7 @@ public class HitParticleSpawner : MonoBehaviour {
                 break;
         }
 
-        // TODO spawn particles at point
+        // Spawn effect at given position and orientation
         GameObject particleClone = GameObject.Instantiate(particles.gameObject,position, Quaternion.LookRotation(direction));
 		ParticleSystem effect = particleClone.GetComponent<ParticleSystem> ();
 		effect.Play ();

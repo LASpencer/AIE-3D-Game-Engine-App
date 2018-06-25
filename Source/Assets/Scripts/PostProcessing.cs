@@ -32,8 +32,6 @@ public class PostProcessing : MonoBehaviour {
 
     public bool edgeOnly;
 
-    //TODO figure out if different settings for this, or have multiple cameras
-
 	// Use this for initialization
 	void Start () {
         cam = GetComponent<Camera>();
@@ -86,6 +84,7 @@ public class PostProcessing : MonoBehaviour {
 
             RenderTexture toDistort;
 
+            // HACK combine previous effects together
             if(drawEdges && drawFog)
             {
                 blend.SetTexture("_BaseTex", edgeRender);
@@ -113,17 +112,14 @@ public class PostProcessing : MonoBehaviour {
 
             if (drawVisor)
             {
+                // Apply distortion to screen
                 Graphics.Blit(toDistort, destination, visor);
             } else
             {
                 Graphics.Blit(toDistort, destination);
             }
-
-            RenderTexture.ReleaseTemporary(temp1);
-            RenderTexture.ReleaseTemporary(temp2);
-            RenderTexture.ReleaseTemporary(fogRender);
-            RenderTexture.ReleaseTemporary(edgeRender);
-        } catch
+            
+        } finally
         {
             RenderTexture.ReleaseTemporary(temp1);
             RenderTexture.ReleaseTemporary(temp2);

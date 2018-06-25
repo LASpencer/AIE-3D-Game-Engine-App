@@ -61,7 +61,7 @@ Material:
     m_Floats:
     - _BumpScale: 1
     - _Cutoff: 0.5
-    - _Density: 10
+    - _Density: 12.1
     - _DensityBase: 1.94
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
@@ -82,4 +82,4 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _FogColour: {r: 0.42625436, g: 0.50475484, b: 0.53676474, a: 1}
+    - _FogColour: {r: 0.42625436, g: 0.50475484, b: 0.53676474, a: 0.984}

@@ -5,6 +5,7 @@ using UnityEngine;
 public class HideHealthBar : StateMachineBehaviour {
 
 	 // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
+     // Resets taken damage to 0
 	override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
         HealthBar hb = animator.GetComponent<HealthBar>();
         if (hb != null)

@@ -14,6 +14,7 @@ public class KilledHealthbar : StateMachineBehaviour {
     }
 
 	// OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
+    // Damage bar drains away over time
 	override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
         HealthBar hb = animator.GetComponent<HealthBar>();
         if (hb != null)

@@ -13,7 +13,7 @@ public class Gun : MonoBehaviour {
     [SerializeField]
     float rof = 0.5f;
 
-    float shotCD = 0;
+    float shotCD = 0;   // time until next shot can be made
 
     public float damage = 20;
     public float headshotBonus = 2;
@@ -23,7 +23,7 @@ public class Gun : MonoBehaviour {
     GameObject shell;
 
     [SerializeField]
-    Transform shellPosition;
+    Transform shellPosition;    // Position to spawn shell casing
 
     [SerializeField]
     float ejectionSpeed;
@@ -41,10 +41,11 @@ public class Gun : MonoBehaviour {
         shotCD = Mathf.Max(shotCD - Time.deltaTime, 0);
 	}
 
+    // Returns true if gun fires
 	public bool Fire(){
-        //TODO make gun fire (particle effect + sound effect, animation)
         if (shotCD == 0)
         {
+            // Set cooldown and play animation and effects
             shotCD = rof;
             anim.SetTrigger("Shoot");
             audio.Play();
@@ -61,7 +62,7 @@ public class Gun : MonoBehaviour {
 		return true;
 	}
 
-    //TODO based on animation event, spawn bullet casing
+    // Animation event spawning shell casing
     public void EjectShell()
     {
         GameObject ejected = Instantiate(shell, shellPosition.position, shellPosition.rotation);

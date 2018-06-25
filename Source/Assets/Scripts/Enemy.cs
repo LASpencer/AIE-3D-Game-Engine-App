@@ -11,7 +11,7 @@ using UnityEngine.AI;
 public class Enemy : MonoBehaviour {
 
     [SerializeField]
-    Canvas infoCanvas;
+    Canvas infoCanvas;  // Worldspace UI canvas for enemy
 
     [SerializeField]
     float maxHealth = 100;
@@ -25,12 +25,12 @@ public class Enemy : MonoBehaviour {
     Animator m_animator;
     NavMeshAgent agent;
     ThirdPersonCharacter character;
-    NavMeshObstacle obstacle;
+    NavMeshObstacle obstacle;           // obstacle for corpse
 
     bool alive;
 
-    public List<Renderer> defaultRenderers;
-    public List<Renderer> irRenderers;
+    public List<Renderer> defaultRenderers;     // Renderers on Default layer
+    public List<Renderer> irRenderers;          // Renderers with IR material on Enemy layer
 
     public Transform currentGoal;
     public float arrivalDistance;
@@ -38,15 +38,14 @@ public class Enemy : MonoBehaviour {
     [SerializeField]
     float stepModifier = 1;
 
-    //TODO create AIController class to manage movement animations and navmeshagent stuff
-
 	// Use this for initialization
 	void Start () {
         GameManager.instance.OnEnemySpawn(this);
-        health = maxHealth;
 
+        health = maxHealth;
         healthBar.maxHealth = maxHealth;
         healthBar.health = health;
+        alive = true;
 
         m_animator = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
@@ -57,8 +56,6 @@ public class Enemy : MonoBehaviour {
         agent.updatePosition = true;
 
         obstacle.enabled = false;
-
-        alive = true;
 
         currentGoal = GameManager.instance.GetRandomGoal(null);
         agent.SetDestination(currentGoal.position);
@@ -71,11 +68,13 @@ public class Enemy : MonoBehaviour {
 
         if (alive)
         {
+            // Get new goal if path blocked or goal reached
             if(agent.pathStatus != NavMeshPathStatus.PathComplete || Vector3.Distance(transform.position, currentGoal.position) < arrivalDistance)
             {
                 currentGoal = GameManager.instance.GetRandomGoal(currentGoal);
                 agent.SetDestination(currentGoal.position);
             }
+            // Move towards current goal
             if(agent.remainingDistance > agent.stoppingDistance)
             {
                 character.Move(agent.desiredVelocity / stepModifier, false, false);
@@ -86,7 +85,6 @@ public class Enemy : MonoBehaviour {
         }
         else
         {
-
             character.Move(Vector3.zero, false, false);
             // fade away and despawn when healthbar animation finishes
             if (healthBar.DeathFinished)
@@ -115,6 +113,7 @@ public class Enemy : MonoBehaviour {
         }
     }
 
+    // Stop moving and become an obstacle
     void Kill()
     {
         m_animator.SetTrigger("Dead");

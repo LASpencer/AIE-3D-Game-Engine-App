@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Opens and closes when interactable used
 [RequireComponent(typeof(Interactable))]
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(MeshRenderer))]

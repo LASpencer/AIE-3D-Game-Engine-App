@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
+// Component allowing player to interact with an object
 public class Interactable : MonoBehaviour {
 
     public string verb;
@@ -17,7 +18,7 @@ public class Interactable : MonoBehaviour {
     Canvas displayCanvas;
 
 	bool wasSelected;	// Was it selected the previous frame?
-    bool selected;
+    bool selected;      // Is it selected this frame?
 
 	// Use this for initialization
 	void Start () {
@@ -31,12 +32,14 @@ public class Interactable : MonoBehaviour {
         {
             displayCanvas.gameObject.SetActive(true);
 
+            // Flip canvas if player is behind
             if(Vector3.Dot(Camera.main.transform.forward, displayCanvas.transform.forward) < 0)
             {
                 displayCanvas.transform.forward = -displayCanvas.transform.forward;
             }
 
             verbText.text = verb;
+
 			if (!wasSelected) {
 				OnSelect.Invoke ();
 			}
@@ -50,6 +53,7 @@ public class Interactable : MonoBehaviour {
 			wasSelected = false;
         }
 
+        // Reset selection for this frame
         selected = false;
 	}
 

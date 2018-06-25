@@ -10,6 +10,7 @@ public class DrainDamage : StateMachineBehaviour {
 	//}
 
 	// OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
+    // Damage portion of bar shrinks over time
 	override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
         HealthBar hb = animator.GetComponent<HealthBar>();
         if(hb != null)

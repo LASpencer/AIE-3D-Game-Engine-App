@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// This component destoys the object when shot
+[RequireComponent(typeof(Collider))]
 public class Destroyable : MonoBehaviour
 {
 

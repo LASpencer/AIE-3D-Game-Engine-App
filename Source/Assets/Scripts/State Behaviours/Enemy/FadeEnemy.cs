@@ -5,17 +5,20 @@ using UnityEngine;
 public class FadeEnemy : StateMachineBehaviour {
 
 	 // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
+     // Disables IR rendering and changes rendering to fade mode
 	override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
         Enemy e = animator.GetComponent<Enemy>();
         if(e != null)
         {
             foreach(Renderer r in e.irRenderers)
             {
+                // Fading enemy doesn't appear in IR
                 r.enabled = false;
             }
 
             foreach(Renderer r in e.defaultRenderers)
             {
+                // Change material's shader to Fade rendering
                 r.material.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.One);
                 r.material.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
                 r.material.SetInt("_ZWrite", 0);
@@ -28,6 +31,7 @@ public class FadeEnemy : StateMachineBehaviour {
 	}
 
 	// OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
+    // Decreases alpha over time
 	override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
         Enemy e = animator.GetComponent<Enemy>();
         if (e != null)
@@ -36,7 +40,6 @@ public class FadeEnemy : StateMachineBehaviour {
             foreach (Renderer r in e.defaultRenderers)
             {
                 Color newColour = r.material.color;
-
                 newColour.a = Mathf.Max(0, newColour.a - Time.deltaTime * 0.5f);
                 r.material.color = newColour;
             }

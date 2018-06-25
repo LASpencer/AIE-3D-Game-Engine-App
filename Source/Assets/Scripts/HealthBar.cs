@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+// Animated healthbar
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(RectTransform))]
 public class HealthBar : MonoBehaviour {
@@ -12,7 +13,7 @@ public class HealthBar : MonoBehaviour {
     public float damage = 0;
     public float drainRate = 0.5f;
 
-    bool deathFinished = false;
+    bool deathFinished = false; // flag for death effect ending
     public bool DeathFinished {  get { return deathFinished; } }
 
     [SerializeField]
@@ -45,8 +46,7 @@ public class HealthBar : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        //TODO only appear after damage, then fade away
-
+        // Calculate proportion of bar filled by health and damage
         float healthProportion = health / maxHealth;
         float damageProportion = damage / maxHealth;
 
@@ -58,9 +58,11 @@ public class HealthBar : MonoBehaviour {
 
 	}
 
+    // Called when damage taken
     public void InflictDamage(float amount)
     {
         SpawnHitEffect(health / maxHealth);
+        // Update health and accumulated damage
         damage += Mathf.Min(amount, health);
         health = Mathf.Max(0, health - amount);
         anim.SetTrigger("Damaged");
@@ -77,6 +79,7 @@ public class HealthBar : MonoBehaviour {
         deathEffect.Stop(true, ParticleSystemStopBehavior.StopEmitting);
     }
 
+    // Play particle effect at given point on bar
     public void SpawnHitEffect(float barProportion)
     {
         Vector3 pos = new Vector3(rect.rect.width * (barProportion - 0.5f), 0, 0);
